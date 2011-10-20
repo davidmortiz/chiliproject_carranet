@@ -2,7 +2,11 @@
 
 <div class="splitcontentleft">
 <% if @issue.new_record? || @allowed_statuses.any? %>
-<p><%= f.select :status_id, (@allowed_statuses.collect {|p| [p.name, p.id]}), :required => true %></p>
+<p><%= f.hidden_field :status_id %>
+Statuses <br/>
+<% @allowed_statuses.each do |p| %>
+<%= button_to_function p.name, "alert('Hello world!')", :class => "ok" %> 
+<% end %>
 <% else %>
 <p><label><%= l(:field_status) %></label> <%= h(@issue.status.name) %></p>
 <% end %>

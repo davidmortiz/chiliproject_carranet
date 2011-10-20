@@ -120,13 +120,14 @@
 
 <% content_for :sidebar do %>
   <%= render :partial => 'issues/sidebar' %>
-
+<!--
   <% if User.current.allowed_to?(:add_issue_watchers, @project) ||
     (@issue.watchers.present? && User.current.allowed_to?(:view_issue_watchers, @project)) %>
     <div id="watchers">
       <%= render :partial => 'watchers/watchers', :locals => {:watched => @issue} %>
     </div>
   <% end %>
+ -->
 <% end %>
 
 <% content_for :header_tags do %>
