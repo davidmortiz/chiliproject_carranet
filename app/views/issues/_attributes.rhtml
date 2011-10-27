@@ -2,17 +2,12 @@
 
 <div class="splitcontentleft">
 <% if @issue.new_record? || @allowed_statuses.any? %>
-<p><%= f.hidden_field :status_id %>
-Statuses <br/>
-<% @allowed_statuses.each do |p| %>
-<%= button_to_function p.name, "alert('Hello world!')", :class => "ok" %> 
-<% end %>
+<p><%= f.select :status_id, (@allowed_statuses.collect {|p| [p.name, p.id]}), :required => true %></p>
 <% else %>
 <p><label><%= l(:field_status) %></label> <%= h(@issue.status.name) %></p>
 <% end %>
-
 <!--<p><%= f.select :priority_id, (@priorities.collect {|p| [p.name, p.id]}), {:required => true}, :disabled => true %></p> -->
-<p><%= f.select :assigned_to_id, (@issue.assignable_users.collect {|m| [m.name, m.id]}), :include_blank => true %></p>
+<!-- <p><%= f.select :assigned_to_id, (@issue.assignable_users.collect {|m| [m.name, m.id]}), :include_blank => true %></p> -->
 <% unless @project.issue_categories.empty? %>
 <p><%= f.select :category_id, (@project.issue_categories.collect {|c| [c.name, c.id]}), :include_blank => true %>
 <%= prompt_to_remote(image_tag('add.png', :style => 'vertical-align: middle;'),
