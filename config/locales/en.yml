@@ -157,6 +157,7 @@ en:
   notice_file_not_found: The page you were trying to access doesn't exist or has been removed.
   notice_locking_conflict: Data has been updated by another user.
   notice_not_authorized: You are not authorized to access this page.
+  notice_not_authorized_action: You are not authorized to perform this action.
   notice_not_authorized_archived_project: The project you're trying to access has been archived.
   notice_email_sent: "An email was sent to %{value}"
   notice_email_error: "An error occurred while sending mail (%{value})"
@@ -307,6 +308,10 @@ en:
   field_text: Text field
   field_visible: Visible
   field_warn_on_leaving_unsaved: "Warn me when leaving a page with unsaved text"
+  field_custom_filter: Custom LDAP filter
+  field_issue_summary: Issue summary
+  field_new_saved_query: New saved query
+  field_issue_view_all_open: View all open issues
 
   setting_app_title: Application title
   setting_app_subtitle: Application subtitle
@@ -366,6 +371,9 @@ en:
   setting_commit_logtime_enabled: Enable time logging
   setting_commit_logtime_activity_id: Activity for logged time
   setting_gantt_items_limit: Maximum number of items displayed on the gantt chart
+  setting_issue_startdate_is_adddate: Use current date as start date for new issues
+  setting_mail_handler_confirmation_on_success: "Send confirmation email on successful incoming email"
+  setting_mail_handler_confirmation_on_failure: "Send confirmation email on failed incoming email"
 
   permission_add_project: Create project
   permission_add_subprojects: Create subprojects
@@ -472,8 +480,8 @@ en:
   label_issue_status: Data request status
   label_issue_status_plural: Data request statuses
   label_issue_status_new: New status
-  label_issue_category: Data request category
-  label_issue_category_plural: Data request categories
+  label_issue_category: Issue category
+  label_issue_category_plural: Issue categories
   label_issue_category_new: New category
   label_custom_field: Custom field
   label_custom_field_plural: Custom fields
@@ -608,6 +616,7 @@ en:
   label_in_more_than: in more than
   label_greater_or_equal: '>='
   label_less_or_equal: '<='
+  label_between: "between"
   label_in: in
   label_today: today
   label_all_time: all time
@@ -655,6 +664,7 @@ en:
   label_roadmap_overdue: "%{value} late"
   label_roadmap_no_issues: No data requests for this version
   label_search: Search
+  search_input_placeholder: search ...
   label_result_plural: Results
   label_all_words: All words
   label_wiki: Wiki
@@ -770,6 +780,7 @@ en:
   label_incoming_emails: Incoming emails
   label_generate_key: Generate a key
   label_issue_watchers: Watchers
+  label_document_watchers: Watchers
   label_example: Example
   label_display: Display
   label_sort: Sort
@@ -797,6 +808,8 @@ en:
   label_api_access_key_created_on: "API access key created %{value} ago"
   label_profile: Profile
   label_subtask_plural: Subtasks
+  label_subtask_add: Add a subtask
+  label_issue_hierarchy: Issue hierarchy
   label_project_copy_notifications: Send email notifications during the project copy
   label_principal_search: "Search for user or group:"
   label_user_search: "Search for user:"
@@ -811,6 +824,14 @@ en:
   label_additional_workflow_transitions_for_author: Additional transitions allowed when the user is the author
   label_notify_member_plural: Email data request updates
   label_path_encoding: Path encoding
+  label_deleted_custom_field: '(deleted custom field)'
+  label_toc: "Contents"
+  label_mail_handler_confirmation: "Confirmation of email submission: %{subject}"
+  label_mail_handler_failure: "Failed email submission: %{subject}"
+  label_mail_handler_errors_with_submission: "There were errors with your email submission:"
+  label_time_entries: Time entries
+  label_new_time_entry: New time entry
+  label_time_entry_report: Time entry report
 
   button_login: Login
   button_submit: Submit
@@ -885,7 +906,7 @@ en:
   text_tip_issue_begin_day: issue beginning this day
   text_tip_issue_end_day: issue ending this day
   text_tip_issue_begin_end_day: issue beginning and ending this day
-  text_project_identifier_info: 'Only lower case letters (a-z), numbers, dashes and underscores are allowed.<br />Once saved, the identifier cannot be changed.'
+  text_project_identifier_info: 'Only lower case letters (a-z), numbers, dashes and underscores are allowed, must start with a lower case letter.<br />Once saved, the identifier cannot be changed.'
   text_caracters_maximum: "%{count} characters maximum."
   text_caracters_minimum: "Must be at least %{count} characters long."
   text_length_between: "Length between %{min} and %{max} characters."
@@ -919,7 +940,7 @@ en:
   text_enumeration_destroy_question: "%{count} objects are assigned to this value."
   text_enumeration_category_reassign_to: 'Reassign them to this value:'
   text_email_delivery_not_configured: "Email delivery is not configured, and notifications are disabled.\nConfigure your SMTP server in config/configuration.yml and restart the application to enable them."
-  text_repository_usernames_mapping: "Select or update the Redmine user mapped to each username found in the repository log.\nUsers with the same Redmine and repository username or email are automatically mapped."
+  text_repository_usernames_mapping: "Select or update the ChiliProject user mapped to each username found in the repository log.\nUsers with the same ChiliProject and repository username or email are automatically mapped."
   text_diff_truncated: '... This diff was truncated because it exceeds the maximum size that can be displayed.'
   text_custom_field_possible_values_info: 'One line for each value'
   text_wiki_page_destroy_question: "This page has %{descendants} child page(s) and descendant(s). What do you want to do?"
@@ -934,6 +955,9 @@ en:
   text_default_encoding: "Default: UTF-8"
   text_mercurial_repo_example: "local repository (e.g. /hgrepo, c:\\hgrepo)"
   text_git_repo_example: "a bare and local repository (e.g. /gitrepo, c:\\gitrepo)"
+  text_display_subprojects: Display subprojects
+  text_current_project: Current project
+  text_mail_handler_confirmation_successful: "Your email has been successful added at the following url"
 
   default_role_manager: Manager
   default_role_developer: Developer
@@ -963,3 +987,21 @@ en:
   enumeration_doc_categories: Document categories
   enumeration_activities: Activities (time tracking)
   enumeration_system_activity: System Activity
+  description_filter: Filter
+  description_search: Searchfield
+  description_choose_project: Projects
+  description_project_scope: Search scope
+  description_notes: Notes
+  description_message_content: Message content
+  description_query_sort_criteria_attribute: Sort attribute
+  description_query_sort_criteria_direction: Sort direction
+  description_user_mail_notification: Mail notification settings
+  description_available_columns: Available Columns
+  description_selected_columns: Selected Columns
+  description_issue_category_reassign: Choose issue category
+  description_wiki_subpages_reassign: Choose new parent page
+  description_date_range_list: Choose range from list
+  description_date_range_interval: Choose range by selecting start and end date
+  description_date_from: Enter start date
+  description_date_to: Enter end date
+
